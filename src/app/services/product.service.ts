@@ -11,7 +11,7 @@ import {map} from 'rxjs/operators'
 export class ProductService {
 
   //private baseUrl = 'http://localhost:8080/api/products';
-  private baseUrl = 'https://ecommerce-backend-service.herokuapp.com/api/';
+  private baseUrl = 'https://ecommerce-backend-service.herokuapp.com/api/products';
   //private categoryUrl = 'http://localhost:8080/api/product-category';
   private categoryUrl = 'https://ecommerce-backend-service.herokuapp.com/api/product-category';
 
