@@ -4,17 +4,24 @@
   "scripts": {
     "heroku-postbuild": "ng build --prod",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path angularapp  --aot --prod"
+  },
+  "engines": {
+    "node": "v12.11.1",
+    "npm": "6.11.3"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.13",
+    "@angular/cli": "^9.1.8",
     "@angular/common": "~8.2.13",
     "@angular/compiler": "~8.2.13",
+    "@angular/compiler-cli": "^8.2.14",
     "@angular/core": "~8.2.13",
     "@angular/forms": "~8.2.13",
     "@angular/localize": "^9.1.11",
@@ -24,14 +31,17 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@ng-bootstrap/ng-bootstrap": "~5.2.2",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "typescript": "~3.5.3",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.26",
-    "@angular/cli": "~8.3.18",
-    "@angular/compiler-cli": "^8.2.13",
+    "@angular-devkit/build-angular": "^0.901.8",
+    "@angular/cli": "^9.1.8",
+    "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "~8.2.13",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
