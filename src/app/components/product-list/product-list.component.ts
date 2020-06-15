@@ -4,6 +4,7 @@ import { Product } from 'src/app/common/product';
 import { ActivatedRoute } from '@angular/router';
 import {CartItem} from "../../common/cart-item";
 import {CartService} from "../../services/cart.service";
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-product-list',
@@ -28,7 +29,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private spinnerService: NgxSpinnerService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(() => {
@@ -37,6 +39,7 @@ export class ProductListComponent implements OnInit {
   }
 
   listProducts() {
+    this.spinnerService.show();
     this.searchMode  = this.route.snapshot.paramMap.has('keyword');
     if (this.searchMode) {
       this.handleSearchProducts();
@@ -85,7 +88,7 @@ export class ProductListComponent implements OnInit {
       this.pageNumber = data.page.number + 1;
       this.pageSize = data.page.size;
       this.totalElements = data.page.totalElements;
-
+      this.spinnerService.hide();
     };
   }
   updatePageSize(pageSize: number) {
